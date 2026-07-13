@@ -4,11 +4,11 @@ use wayle_sysinfo::types::MemoryData;
 
 pub(super) fn format_label(format: &str, mem: &MemoryData) -> String {
     let ctx = json!({
-        "percent": format!("{:02.0}", mem.usage_percent),
+        "percent": mem.usage_percent.round() as u32,
         "used_gib": gib(mem.used_bytes),
         "total_gib": gib(mem.total_bytes),
         "available_gib": gib(mem.available_bytes),
-        "swap_percent": format!("{:02.0}", mem.swap_percent),
+        "swap_percent": mem.swap_percent.round() as u32,
         "swap_used_gib": gib(mem.swap_used_bytes),
         "swap_total_gib": gib(mem.swap_total_bytes),
     });
@@ -53,10 +53,10 @@ mod tests {
     }
 
     #[test]
-    fn format_label_percent_pads_single_digits() {
+    fn format_label_percent_does_not_pad_single_digits() {
         let mem = mem_data(GIB, 16 * GIB, 15 * GIB, 6.25, 0, 4 * GIB, 0.0);
         let result = format_label("{{ percent }}", &mem);
-        assert_eq!(result, "06");
+        assert_eq!(result, "6");
     }
 
     #[test]

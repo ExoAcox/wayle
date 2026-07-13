@@ -101,6 +101,10 @@ impl Component for MediaModule {
         let bar_button = model.bar_button.widget();
         let widgets = view_output!();
 
+        if model.config.config().modules.media.hide_if_empty.get() && model.media.active_player().is_none() {
+            _root.set_visible(false);
+        }
+
         ComponentParts { model, widgets }
     }
 
@@ -123,6 +127,9 @@ impl Component for MediaModule {
 
         match msg {
             MediaCmd::PlayerChanged(player) => {
+                let is_visible = !media_config.hide_if_empty.get() || player.is_some();
+                root.set_visible(is_visible);
+
                 let use_disc =
                     player.is_some() && media_config.icon_type.get() == MediaIconType::SpinningDisc;
                 Self::update_disc_mode(root, use_disc);
@@ -176,6 +183,10 @@ impl Component for MediaModule {
                     let state = player.playback_state.get();
                     Self::update_spinning_state(root, state);
                 }
+            }
+            MediaCmd::VisibilityChanged => {
+                let is_visible = !media_config.hide_if_empty.get() || self.media.active_player().is_some();
+                root.set_visible(is_visible);
             }
         }
     }

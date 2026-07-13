@@ -75,9 +75,11 @@ pub fn theme_css(
     --global-scale: {global_scale};
     --bar-scale: {bar_scale};
     --bar-btn-icon-scale: {btn_icon_scale};
-    --bar-btn-icon-padding-scale: {btn_icon_padding_scale};
+    --bar-btn-icon-padding-x-scale: {btn_icon_padding_x_scale};
+    --bar-btn-icon-padding-y-scale: {btn_icon_padding_y_scale};
     --bar-btn-label-scale: {btn_label_scale};
-    --bar-btn-label-padding-scale: {btn_label_padding_scale};
+    --bar-btn-label-padding-x-scale: {btn_label_padding_x_scale};
+    --bar-btn-label-padding-y-scale: {btn_label_padding_y_scale};
     --bar-btn-gap-scale: {btn_gap_scale};
 
     --cfg-rounding-element: {rounding_element};
@@ -102,9 +104,11 @@ pub fn theme_css(
         global_scale = styling.scale.get(),
         bar_scale = bar.scale.get(),
         btn_icon_scale = bar.button_icon_size.get(),
-        btn_icon_padding_scale = bar.button_icon_padding.get(),
+        btn_icon_padding_x_scale = bar.button_icon_padding_x.get(),
+        btn_icon_padding_y_scale = bar.button_icon_padding_y.get(),
         btn_label_scale = bar.button_label_size.get(),
-        btn_label_padding_scale = bar.button_label_padding.get(),
+        btn_label_padding_x_scale = bar.button_label_padding_x.get(),
+        btn_label_padding_y_scale = bar.button_label_padding_y.get(),
         btn_gap_scale = bar.button_gap.get(),
         rounding_element = global.element,
         rounding_container = global.container,

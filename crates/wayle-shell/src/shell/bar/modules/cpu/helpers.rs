@@ -5,7 +5,7 @@ use wayle_sysinfo::types::CpuData;
 ///
 /// ## Variables
 ///
-/// - `{{ percent }}` - CPU usage (00-100, zero-padded)
+/// - `{{ percent }}` - CPU usage (0-100)
 /// - `{{ freq_ghz }}` - Frequency of the busiest core (highest usage)
 /// - `{{ avg_freq_ghz }}` - Average frequency across cores
 /// - `{{ max_freq_ghz }}` - Maximum frequency among cores
@@ -19,7 +19,7 @@ pub(super) fn format_label(format: &str, cpu: &CpuData) -> String {
     let temp_f = temp_c * 9.0 / 5.0 + 32.0;
 
     let ctx = json!({
-        "percent": format!("{:02.0}", cpu.usage_percent),
+        "percent": cpu.usage_percent.round() as u32,
         "freq_ghz": format!("{busiest_ghz:.1}"),
         "avg_freq_ghz": format!("{avg_ghz:.1}"),
         "max_freq_ghz": format!("{max_ghz:.1}"),
@@ -58,10 +58,10 @@ mod tests {
     }
 
     #[test]
-    fn format_label_percent_pads_single_digits() {
+    fn format_label_percent_does_not_pad_single_digits() {
         let cpu = cpu_data(5.2, 3500, 4500, 4200, Some(55.0));
         let result = format_label("{{ percent }}", &cpu);
-        assert_eq!(result, "05");
+        assert_eq!(result, "5");
     }
 
     #[test]

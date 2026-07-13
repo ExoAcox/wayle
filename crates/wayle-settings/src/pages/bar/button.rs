@@ -40,7 +40,8 @@ pub(crate) fn entry(config: &Config) -> LeafEntry {
                     title_key: "settings-section-icons",
                     items: vec![
                         scale(&bar.button_icon_size),
-                        scale(&bar.button_icon_padding),
+                        scale(&bar.button_icon_padding_x),
+                        scale(&bar.button_icon_padding_y),
                     ],
                 },
                 SectionSpec {
@@ -48,7 +49,8 @@ pub(crate) fn entry(config: &Config) -> LeafEntry {
                     items: vec![
                         scale(&bar.button_label_size),
                         enum_select(&bar.button_label_weight),
-                        scale(&bar.button_label_padding),
+                        scale(&bar.button_label_padding_x),
+                        scale(&bar.button_label_padding_y),
                     ],
                 },
                 SectionSpec {

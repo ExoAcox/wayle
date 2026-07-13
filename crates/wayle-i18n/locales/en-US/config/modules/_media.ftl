@@ -23,6 +23,9 @@ settings-modules-media-icon-name = Icon Name
 settings-modules-media-spinning-disc-icon = Spinning Disc Icon
     .description = Icon shown for spinning-disc mode
 
+settings-modules-media-hide-if-empty = Hide If Empty
+    .description = Hide the module when no media player is active
+
 settings-modules-media-border-show = Show Border
     .description = Display border around button
 

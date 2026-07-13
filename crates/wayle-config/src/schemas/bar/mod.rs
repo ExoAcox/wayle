@@ -13,7 +13,7 @@ use crate::{
     schemas::{
         general::Layer,
         styling::{
-            ColorValue, CssToken, FontWeightClass, Percentage, RoundingLevel, ScaleFactor, Spacing,
+            ColorValue, CssToken, FontWeightClass, Offset, Percentage, RoundingLevel, ScaleFactor, Spacing,
         },
     },
 };
@@ -60,6 +60,11 @@ pub struct BarConfig {
     #[default(Spacing::new(0.0))]
     pub inset_ends: ConfigProperty<Spacing>,
 
+    /// Gap between the bar and active windows.
+    #[serde(rename = "inset-window")]
+    #[default(Offset::new(0.0))]
+    pub inset_window: ConfigProperty<Offset>,
+
     /// Internal spacing along bar thickness.
     ///
     /// - **Orientation**: Top/bottom (horizontal bar), left/right (vertical bar)
@@ -77,6 +82,11 @@ pub struct BarConfig {
     #[serde(rename = "module-gap")]
     #[default(Spacing::new(0.5))]
     pub module_gap: ConfigProperty<Spacing>,
+
+    /// Gap between the left, center, and right sections.
+    #[serde(rename = "section-gap")]
+    #[default(Spacing::new(0.5))]
+    pub section_gap: ConfigProperty<Spacing>,
 
     /// Bar position on screen edge.
     #[default(Location::Top)]
@@ -144,10 +154,15 @@ pub struct BarConfig {
     #[default(ScaleFactor::new(1.0))]
     pub button_icon_size: ConfigProperty<ScaleFactor>,
 
-    /// Button icon container padding. Only applies to `block-prefix` and `icon-square` variants.
-    #[serde(rename = "button-icon-padding")]
+    /// Horizontal padding for the button icon container. Only applies to `block-prefix` and `icon-square` variants.
+    #[serde(rename = "button-icon-padding-x")]
     #[default(ScaleFactor::new(1.0))]
-    pub button_icon_padding: ConfigProperty<ScaleFactor>,
+    pub button_icon_padding_x: ConfigProperty<ScaleFactor>,
+
+    /// Vertical padding for the button icon container. Only applies to `block-prefix` and `icon-square` variants.
+    #[serde(rename = "button-icon-padding-y")]
+    #[default(ScaleFactor::new(1.0))]
+    pub button_icon_padding_y: ConfigProperty<ScaleFactor>,
 
     /// Button label text size.
     #[serde(rename = "button-label-size")]
@@ -159,10 +174,15 @@ pub struct BarConfig {
     #[default(FontWeightClass::Semibold)]
     pub button_label_weight: ConfigProperty<FontWeightClass>,
 
-    /// Button label container padding.
-    #[serde(rename = "button-label-padding")]
+    /// Horizontal padding for the button label container.
+    #[serde(rename = "button-label-padding-x")]
     #[default(ScaleFactor::new(1.0))]
-    pub button_label_padding: ConfigProperty<ScaleFactor>,
+    pub button_label_padding_x: ConfigProperty<ScaleFactor>,
+
+    /// Vertical padding for the button label container.
+    #[serde(rename = "button-label-padding-y")]
+    #[default(ScaleFactor::new(1.0))]
+    pub button_label_padding_y: ConfigProperty<ScaleFactor>,
 
     /// Corner rounding level for the buttons in the bar.
     #[serde(rename = "button-rounding")]

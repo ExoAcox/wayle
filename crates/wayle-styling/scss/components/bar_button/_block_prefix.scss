@@ -14,13 +14,14 @@ menubutton.bar-button.block-prefix {
     }
 
 
-    .icon-container image {
+    .icon-container image,
+    .icon-container .text-icon {
         color: var(--bar-btn-icon-color);
-        margin: var(--bar-btn-icon-padding);
+        margin: var(--bar-btn-icon-padding-y) var(--bar-btn-icon-padding-x);
     }
 
     .label-container {
-        margin: var(--bar-btn-label-padding);
+        margin: var(--bar-btn-label-padding-y) var(--bar-btn-label-padding-x);
     }
 
     .bar-button-label {

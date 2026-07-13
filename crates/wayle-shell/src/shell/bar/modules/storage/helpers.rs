@@ -58,7 +58,7 @@ pub(super) fn aggregate_storage(
 
 pub(super) fn format_label(format: &str, snapshot: &StorageSnapshot) -> String {
     let ctx = json!({
-        "percent": format!("{:02.0}", snapshot.usage_percent),
+        "percent": snapshot.usage_percent.round() as u32,
         "used_tib": tib(snapshot.used_bytes),
         "used_gib": gib(snapshot.used_bytes),
         "used_mib": mib(snapshot.used_bytes),
@@ -213,10 +213,10 @@ mod tests {
     }
 
     #[test]
-    fn format_label_percent_pads_single_digits() {
+    fn format_label_percent_does_not_pad_single_digits() {
         let snapshot = storage_snapshot(50 * GIB, 1000 * GIB, 950 * GIB, 5.0, "ext4");
         let result = format_label("{{ percent }}", &snapshot);
-        assert_eq!(result, "05");
+        assert_eq!(result, "5");
     }
 
     #[test]

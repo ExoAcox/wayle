@@ -3,7 +3,7 @@ use std::fmt;
 use relm4::{gtk::prelude::*, prelude::*};
 use wayle_config::{
     ConfigProperty,
-    schemas::styling::{ScaleFactor, Spacing},
+    schemas::styling::{Offset, ScaleFactor, Spacing},
 };
 use wayle_i18n::t;
 
@@ -30,6 +30,37 @@ pub(crate) fn spacing(property: &ConfigProperty<Spacing>) -> SettingRowInit {
             from_f64: |value| {
                 let clean = if value.is_finite() { value } else { 0.0 };
                 Spacing::new(clean.clamp(Spacing::MIN as f64, 500.0) as f32)
+            },
+        })
+        .detach();
+
+    let widget = controller.widget().clone();
+
+    SettingRowInit {
+        i18n_key: property.i18n_key(),
+        handle: PropertyHandle::new(property, |value| value.value().to_string()),
+        control: widget.upcast(),
+        keepalive: Box::new(controller),
+        full_width: false,
+        dirty_badge: None,
+        behavior: RowBehavior::Setting,
+        unit: Some(String::from("rem")),
+    }
+}
+
+/// Row with a numeric spin bound to an `Offset` property, stepping in 0.5 pixel increments from -500 to 500.
+pub(crate) fn offset(property: &ConfigProperty<Offset>) -> SettingRowInit {
+    let controller = NumberControl::builder()
+        .launch(NumberInit {
+            property: property.clone(),
+            range_min: -500.0,
+            range_max: 500.0,
+            step: 0.5,
+            digits: 2,
+            to_f64: |offset| offset.value() as f64,
+            from_f64: |value| {
+                let clean = if value.is_finite() { value } else { 0.0 };
+                Offset::new(clean.clamp(-500.0, 500.0) as f32)
             },
         })
         .detach();
