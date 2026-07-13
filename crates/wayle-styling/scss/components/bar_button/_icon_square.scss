@@ -3,7 +3,7 @@
 
 menubutton.bar-button.icon-square {
     .bar-button-content {
-        margin: calc(var(--bar-btn-label-padding) * 0.75);
+        margin: calc(var(--bar-btn-label-padding-y) * 0.75) calc(var(--bar-btn-label-padding-x) * 0.75);
     }
 
     .icon-container {
@@ -13,7 +13,7 @@ menubutton.bar-button.icon-square {
 
         image {
             color: var(--bar-btn-icon-color);
-            margin: calc(var(--bar-btn-icon-padding) * 0.3);
+            margin: calc(var(--bar-btn-icon-padding-y) * 0.3) calc(var(--bar-btn-icon-padding-x) * 0.3);
         }
     }
 

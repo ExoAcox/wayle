@@ -11,28 +11,28 @@
 
     &.top {
         margin-top: calc(var(--bar-inset-edge-px) * 1px);
-        margin-bottom: calc(var(--bar-shadow-margin) * 1px);
+        margin-bottom: calc((var(--bar-shadow-margin) + var(--bar-inset-window-px)) * 1px);
         margin-left: calc(var(--bar-inset-ends-px) * 1px);
         margin-right: calc(var(--bar-inset-ends-px) * 1px);
     }
 
     &.bottom {
         margin-bottom: calc(var(--bar-inset-edge-px) * 1px);
-        margin-top: calc(var(--bar-shadow-margin) * 1px);
+        margin-top: calc((var(--bar-shadow-margin) + var(--bar-inset-window-px)) * 1px);
         margin-left: calc(var(--bar-inset-ends-px) * 1px);
         margin-right: calc(var(--bar-inset-ends-px) * 1px);
     }
 
     &.left {
         margin-left: calc(var(--bar-inset-edge-px) * 1px);
-        margin-right: calc(var(--bar-shadow-margin) * 1px);
+        margin-right: calc((var(--bar-shadow-margin) + var(--bar-inset-window-px)) * 1px);
         margin-top: calc(var(--bar-inset-ends-px) * 1px);
         margin-bottom: calc(var(--bar-inset-ends-px) * 1px);
     }
 
     &.right {
         margin-right: calc(var(--bar-inset-edge-px) * 1px);
-        margin-left: calc(var(--bar-shadow-margin) * 1px);
+        margin-left: calc((var(--bar-shadow-margin) + var(--bar-inset-window-px)) * 1px);
         margin-top: calc(var(--bar-inset-ends-px) * 1px);
         margin-bottom: calc(var(--bar-inset-ends-px) * 1px);
     }
@@ -46,9 +46,16 @@
 
         &.bar-left {
             margin-left: calc(var(--bar-padding-ends-px) * 1px);
+            margin-right: calc(var(--bar-section-gap-px) * 0.5px);
+        }
+
+        &.bar-center {
+            margin-left: calc(var(--bar-section-gap-px) * 0.5px);
+            margin-right: calc(var(--bar-section-gap-px) * 0.5px);
         }
 
         &.bar-right {
+            margin-left: calc(var(--bar-section-gap-px) * 0.5px);
             margin-right: calc(var(--bar-padding-ends-px) * 1px);
         }
     }
@@ -62,9 +69,16 @@
 
         &.bar-left {
             margin-top: calc(var(--bar-padding-ends-px) * 1px);
+            margin-bottom: calc(var(--bar-section-gap-px) * 0.5px);
+        }
+
+        &.bar-center {
+            margin-top: calc(var(--bar-section-gap-px) * 0.5px);
+            margin-bottom: calc(var(--bar-section-gap-px) * 0.5px);
         }
 
         &.bar-right {
+            margin-top: calc(var(--bar-section-gap-px) * 0.5px);
             margin-bottom: calc(var(--bar-padding-ends-px) * 1px);
         }
     }

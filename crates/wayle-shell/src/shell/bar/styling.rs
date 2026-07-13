@@ -38,9 +38,11 @@ impl InlineStyling for Bar {
         bar.scale.subscribe_changes(tx.clone());
         bar.inset_edge.subscribe_changes(tx.clone());
         bar.inset_ends.subscribe_changes(tx.clone());
+        bar.inset_window.subscribe_changes(tx.clone());
         bar.padding.subscribe_changes(tx.clone());
         bar.padding_ends.subscribe_changes(tx.clone());
         bar.module_gap.subscribe_changes(tx.clone());
+        bar.section_gap.subscribe_changes(tx.clone());
         bar.button_group_module_gap.subscribe_changes(tx.clone());
         bar.button_group_padding.subscribe_changes(tx.clone());
         bar.button_group_background.subscribe_changes(tx.clone());
@@ -113,9 +115,11 @@ impl InlineStyling for Bar {
         let scale = bar.scale.get().value();
         let inset_edge_px = rem_to_px_rounded(bar.inset_edge.get().value(), scale);
         let inset_ends_px = rem_to_px_rounded(bar.inset_ends.get().value(), scale);
+        let inset_window_px = rem_to_px_rounded(bar.inset_window.get().value(), scale);
         let padding_px = rem_to_px_rounded(bar.padding.get().value(), scale);
         let padding_ends_px = rem_to_px_rounded(bar.padding_ends.get().value(), scale);
         let module_gap_px = rem_to_px_rounded(bar.module_gap.get().value(), scale);
+        let section_gap_px = rem_to_px_rounded(bar.section_gap.get().value(), scale);
         let group_module_gap_px =
             rem_to_px_rounded(bar.button_group_module_gap.get().value(), scale);
         let group_padding_px =
@@ -158,9 +162,11 @@ impl InlineStyling for Bar {
             --bar-border-right: {border_right}; \
             --bar-inset-edge-px: {inset_edge_px}; \
             --bar-inset-ends-px: {inset_ends_px}; \
+            --bar-inset-window-px: {inset_window_px}; \
             --bar-padding-px: {padding_px}; \
             --bar-padding-ends-px: {padding_ends_px}; \
             --bar-module-gap-px: {module_gap_px}; \
+            --bar-section-gap-px: {section_gap_px}; \
             --bar-button-opacity: {button_opacity}; \
             --bar-button-bg-opacity: {button_bg_opacity}%; \
             --bar-btn-label-weight: var({label_weight}); \

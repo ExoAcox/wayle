@@ -14,6 +14,9 @@ settings-bar-inset-edge = Edge Inset
 settings-bar-inset-ends = End Inset
     .description = Gap at the bar's ends (left/right for horizontal, top/bottom for vertical)
 
+settings-bar-inset-window = Window Inset
+    .description = Gap between the bar and active windows
+
 settings-bar-padding = Padding
     .description = Internal spacing along bar thickness
 
@@ -22,6 +25,9 @@ settings-bar-padding-ends = End Padding
 
 settings-bar-module-gap = Module Gap
     .description = Gap between modules and groups on the bar
+
+settings-bar-section-gap = Section Gap
+    .description = Gap between the left, center, and right sections
 
 settings-bar-location = Location
     .description = Bar position on screen edge (top, bottom, left, right)
@@ -64,8 +70,11 @@ settings-bar-button-bg-opacity = Button Background Opacity
 settings-bar-button-icon-size = Button Icon Size
     .description = Size multiplier for button icons
 
-settings-bar-button-icon-padding = Button Icon Padding
-    .description = Padding around button icons. Only applies to block-prefix and icon-square variants.
+settings-bar-button-icon-padding-x = Button Icon Padding X
+    .description = Horizontal padding around button icons. Only applies to block-prefix and icon-square variants.
+
+settings-bar-button-icon-padding-y = Button Icon Padding Y
+    .description = Vertical padding around button icons. Only applies to block-prefix and icon-square variants.
 
 settings-bar-button-label-size = Button Label Size
     .description = Size multiplier for button text
@@ -73,8 +82,11 @@ settings-bar-button-label-size = Button Label Size
 settings-bar-button-label-weight = Button Label Weight
     .description = Font weight for button labels
 
-settings-bar-button-label-padding = Button Label Padding
-    .description = Padding around button labels
+settings-bar-button-label-padding-x = Button Label Padding X
+    .description = Horizontal padding around button labels
+
+settings-bar-button-label-padding-y = Button Label Padding Y
+    .description = Vertical padding around button labels
 
 settings-bar-button-gap = Button Gap
     .description = Gap between icon and label in buttons

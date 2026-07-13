@@ -14,6 +14,9 @@ settings-bar-inset-edge = Retrait du bord
 settings-bar-inset-ends = Retrait des extrémités
     .description = Espace aux extrémités de la barre (gauche/droite en horizontal, haut/bas en vertical)
 
+settings-bar-inset-window = Retrait des fenêtres
+    .description = Espace entre la barre et les fenêtres actives
+
 settings-bar-padding = Marge intérieure
     .description = Espacement interne le long de l'épaisseur de la barre
 
@@ -22,6 +25,9 @@ settings-bar-padding-ends = Marge intérieure des extrémités
 
 settings-bar-module-gap = Écart entre modules
     .description = Espace entre les modules et les groupes sur la barre
+
+settings-bar-section-gap = Écart entre sections
+    .description = Espace entre les sections gauche, centrale et droite de la barre
 
 settings-bar-location = Position
     .description = Position de la barre sur le bord de l'écran (haut, bas, gauche, droite)
@@ -58,8 +64,11 @@ settings-bar-button-bg-opacity = Opacité de l'arrière-plan des boutons
 settings-bar-button-icon-size = Taille de l'icône du bouton
     .description = Multiplicateur de taille pour les icônes de bouton
 
-settings-bar-button-icon-padding = Marge intérieure de l'icône du bouton
-    .description = Marge intérieure autour des icônes de bouton. S'applique uniquement aux variantes block-prefix et icon-square.
+settings-bar-button-icon-padding-x = Marge intérieure X de l'icône du bouton
+    .description = Marge intérieure horizontale autour des icônes de bouton. S'applique uniquement aux variantes block-prefix et icon-square.
+
+settings-bar-button-icon-padding-y = Marge intérieure Y de l'icône du bouton
+    .description = Marge intérieure verticale autour des icônes de bouton. S'applique uniquement aux variantes block-prefix et icon-square.
 
 settings-bar-button-label-size = Taille du libellé du bouton
     .description = Multiplicateur de taille pour le texte des boutons
@@ -67,8 +76,11 @@ settings-bar-button-label-size = Taille du libellé du bouton
 settings-bar-button-label-weight = Graisse du libellé du bouton
     .description = Graisse de la police pour les libellés des boutons
 
-settings-bar-button-label-padding = Marge intérieure du libellé du bouton
-    .description = Marge intérieure autour des libellés des boutons
+settings-bar-button-label-padding-x = Marge intérieure X du libellé du bouton
+    .description = Marge intérieure horizontale autour des libellés des boutons
+
+settings-bar-button-label-padding-y = Marge intérieure Y du libellé du bouton
+    .description = Marge intérieure verticale autour des libellés des boutons
 
 settings-bar-button-gap = Écart du bouton
     .description = Espace entre l'icône et le libellé dans les boutons
