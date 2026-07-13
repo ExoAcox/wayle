@@ -30,6 +30,37 @@ pub(super) struct IconContext<'a> {
     pub fallback: &'a str,
 }
 
+pub(super) fn resolve_name(
+    title: &str,
+    app_id: &str,
+    name_mappings: &BTreeMap<String, String>,
+) -> String {
+    let (title_mappings, app_id_mappings): (Vec<_>, Vec<_>) = name_mappings
+        .iter()
+        .partition(|(pattern, _)| pattern.starts_with(TITLE_PREFIX));
+
+    if let Some(name) = glob::find_match(
+        title_mappings.iter().map(|(pattern, name)| {
+            let stripped = pattern.strip_prefix(TITLE_PREFIX).unwrap_or(pattern);
+            (stripped, name.as_str())
+        }),
+        title,
+    ) {
+        return name.to_string();
+    }
+
+    if let Some(name) = glob::find_match(
+        app_id_mappings
+            .iter()
+            .map(|(pattern, name)| (pattern.as_str(), name.as_str())),
+        app_id,
+    ) {
+        return name.to_string();
+    }
+
+    title.to_string()
+}
+
 pub(super) fn resolve_icon(ctx: &IconContext<'_>) -> String {
     let (title_mappings, app_id_mappings): (Vec<_>, Vec<_>) = ctx
         .user_mappings
@@ -181,5 +212,43 @@ mod tests {
         });
 
         assert_eq!(icon, "my-static-icon");
+    }
+
+    // --- resolve_name tests ---
+
+    #[test]
+    fn resolve_name_class_mapping() {
+        let mut mappings = BTreeMap::new();
+        mappings.insert("*firefox*".to_string(), "Firefox".to_string());
+
+        let result = resolve_name("Home - Mozilla Firefox", "firefox", &mappings);
+        assert_eq!(result, "Firefox");
+    }
+
+    #[test]
+    fn resolve_name_title_mapping_takes_priority() {
+        let mut mappings = BTreeMap::new();
+        mappings.insert("*firefox*".to_string(), "FF".to_string());
+        mappings.insert("title:*YouTube*".to_string(), "YT".to_string());
+
+        let result = resolve_name("YouTube - Music", "firefox", &mappings);
+        assert_eq!(result, "YT");
+    }
+
+    #[test]
+    fn resolve_name_no_match_returns_title() {
+        let mappings = BTreeMap::new();
+
+        let result = resolve_name("Unknown App", "unknown", &mappings);
+        assert_eq!(result, "Unknown App");
+    }
+
+    #[test]
+    fn resolve_name_empty_title_no_match() {
+        let mut mappings = BTreeMap::new();
+        mappings.insert("**.firefox*".to_string(), "Firefox".to_string());
+
+        let result = resolve_name("Unknown App", "unknown-app", &mappings);
+        assert_eq!(result, "Unknown App");
     }
 }

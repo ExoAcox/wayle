@@ -63,4 +63,9 @@ fn spawn_config_watchers(sender: &ComponentSender<WindowTitle>, config: &WindowT
     watch!(sender, [icon_name.watch(), icon_mappings.watch()], |out| {
         let _ = out.send(WindowTitleCmd::IconConfigChanged);
     });
+
+    let name_mappings = config.name_mappings.clone();
+    watch!(sender, [name_mappings.watch()], |out| {
+        let _ = out.send(WindowTitleCmd::NameMappingsChanged);
+    });
 }

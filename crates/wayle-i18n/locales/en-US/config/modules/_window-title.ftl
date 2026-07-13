@@ -11,6 +11,9 @@ settings-modules-window-title-icon-name = Fallback Icon
 settings-modules-window-title-icon-mappings = Icon Mappings
     .description = Glob patterns to icon names (prefix with title: for title matching)
 
+settings-modules-window-title-name-mappings = Name Mappings
+    .description = Glob patterns to custom display names (prefix with title: for title matching)
+
 settings-modules-window-title-border-show = Show Border
     .description = Display border around button
 

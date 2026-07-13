@@ -50,6 +50,11 @@ pub(crate) fn entry(config: &Config) -> LeafEntry {
                             "icon-mappings",
                             &config.styling.palette.bg,
                         ),
+                        toml_editor(
+                            &module.name_mappings,
+                            "name-mappings",
+                            &config.styling.palette.bg,
+                        ),
                     ],
                 },
                 bar_display_section(&fields),

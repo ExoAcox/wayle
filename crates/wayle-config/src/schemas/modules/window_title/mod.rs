@@ -52,6 +52,25 @@ pub struct WindowTitleConfig {
     #[default(BTreeMap::new())]
     pub icon_mappings: ConfigProperty<BTreeMap<String, String>>,
 
+    /// Name mappings. Glob patterns to custom display names.
+    ///
+    /// Keys are patterns matching the window class (default) or title (when
+    /// prefixed with `title:`). Values are the display name shown in the
+    /// label's `{{ title }}` placeholder. When no pattern matches, the raw
+    /// window title is used.
+    ///
+    /// ## Example
+    ///
+    /// ```toml
+    /// [modules.window-title.name-mappings]
+    /// "*firefox*" = "Firefox"
+    /// "*code*" = "VS Code"
+    /// "title:*YouTube*" = "YouTube"
+    /// ```
+    #[serde(rename = "name-mappings")]
+    #[default(BTreeMap::new())]
+    pub name_mappings: ConfigProperty<BTreeMap<String, String>>,
+
     /// Display border around button.
     #[serde(rename = "border-show")]
     #[default(false)]

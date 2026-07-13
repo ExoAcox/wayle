@@ -11,6 +11,9 @@ settings-modules-window-title-icon-name = Icône de repli
 settings-modules-window-title-icon-mappings = Correspondances d'icônes
     .description = Motifs glob vers noms d'icônes (préfixer avec title: pour la correspondance par titre)
 
+settings-modules-window-title-name-mappings = Correspondances de noms
+    .description = Motifs glob vers noms d'affichage personnalisés (préfixer avec title: pour la correspondance par titre)
+
 settings-modules-window-title-border-show = Afficher la bordure
     .description = Afficher une bordure autour du bouton
 

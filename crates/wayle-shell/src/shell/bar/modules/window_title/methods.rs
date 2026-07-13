@@ -12,7 +12,12 @@ impl WindowTitle {
     pub(super) fn update_display(&self, format: &str, root: &gtk::Box) {
         let window_title = &self.config.config().modules.window_title;
 
-        let label = helpers::format_label(format, &self.current_title, &self.current_app_id);
+        let resolved_title = helpers::resolve_name(
+            &self.current_title,
+            &self.current_app_id,
+            &window_title.name_mappings.get(),
+        );
+        let label = helpers::format_label(format, &resolved_title, &self.current_app_id);
         let icon = helpers::resolve_icon(&IconContext {
             title: &self.current_title,
             app_id: &self.current_app_id,
@@ -26,7 +31,13 @@ impl WindowTitle {
     }
 
     pub(super) fn update_label(&self, format: &str, root: &gtk::Box) {
-        let label = helpers::format_label(format, &self.current_title, &self.current_app_id);
+        let window_title = &self.config.config().modules.window_title;
+        let resolved_title = helpers::resolve_name(
+            &self.current_title,
+            &self.current_app_id,
+            &window_title.name_mappings.get(),
+        );
+        let label = helpers::format_label(format, &resolved_title, &self.current_app_id);
         self.bar_button.emit(BarButtonInput::SetLabel(label));
         force_window_resize(root);
     }

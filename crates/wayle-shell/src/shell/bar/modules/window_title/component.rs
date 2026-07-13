@@ -151,6 +151,10 @@ impl Component for WindowTitle {
                 });
                 self.bar_button.emit(BarButtonInput::SetIcon(icon));
             }
+            WindowTitleCmd::NameMappingsChanged => {
+                let format = &self.config.config().modules.window_title.format;
+                self.update_label(&format.get(), root);
+            }
         }
     }
 }

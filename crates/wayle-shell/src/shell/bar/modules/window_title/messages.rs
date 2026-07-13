@@ -34,4 +34,5 @@ pub(crate) enum WindowTitleCmd {
     },
     FormatChanged,
     IconConfigChanged,
+    NameMappingsChanged,
 }
