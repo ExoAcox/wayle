@@ -8,4 +8,4 @@ Wayle
 sandbox/
 
 *.md
-/.vscode
+.vscode/
