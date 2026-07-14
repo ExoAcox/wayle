@@ -154,6 +154,11 @@ pub struct BarConfig {
     #[default(ScaleFactor::new(1.0))]
     pub button_icon_size: ConfigProperty<ScaleFactor>,
 
+    /// Button icon text scale (for Nerd Fonts).
+    #[serde(rename = "button-text-icon-size")]
+    #[default(ScaleFactor::new(1.3))]
+    pub button_text_icon_size: ConfigProperty<ScaleFactor>,
+
     /// Horizontal padding for the button icon container. Only applies to `block-prefix` and `icon-square` variants.
     #[serde(rename = "button-icon-padding-x")]
     #[default(ScaleFactor::new(1.0))]

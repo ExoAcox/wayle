@@ -64,6 +64,9 @@ settings-bar-button-bg-opacity = Opacité de l'arrière-plan des boutons
 settings-bar-button-icon-size = Taille de l'icône du bouton
     .description = Multiplicateur de taille pour les icônes de bouton
 
+settings-bar-button-text-icon-size = Taille de l'icône texte
+    .description = Multiplicateur de taille pour les icônes basées sur le texte (Nerd Fonts)
+
 settings-bar-button-icon-padding-x = Marge intérieure X de l'icône du bouton
     .description = Marge intérieure horizontale autour des icônes de bouton. S'applique uniquement aux variantes block-prefix et icon-square.
 

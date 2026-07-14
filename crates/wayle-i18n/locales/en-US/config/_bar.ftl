@@ -70,6 +70,9 @@ settings-bar-button-bg-opacity = Button Background Opacity
 settings-bar-button-icon-size = Button Icon Size
     .description = Size multiplier for button icons
 
+settings-bar-button-text-icon-size = Text Icon Size
+    .description = Size multiplier for text-based icons (Nerd Fonts)
+
 settings-bar-button-icon-padding-x = Button Icon Padding X
     .description = Horizontal padding around button icons. Only applies to block-prefix and icon-square variants.
 
