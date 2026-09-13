@@ -1,5 +1,7 @@
-use std::cmp::Ordering;
-use std::collections::{HashMap, HashSet};
+use std::{
+    cmp::Ordering,
+    collections::{HashMap, HashSet},
+};
 
 use super::helpers::{is_special_workspace, matches_ignore_patterns};
 
