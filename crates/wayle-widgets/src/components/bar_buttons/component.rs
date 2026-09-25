@@ -255,8 +255,10 @@ impl Component for BarButton {
             }
             BarButtonInput::ConfigChanged => {}
             BarButtonInput::SetThresholdColors(colors) => {
-                self.threshold_overrides = colors;
-                self.reload_css();
+                if colors != self.threshold_overrides {
+                    self.threshold_overrides = colors;
+                    self.reload_css();
+                }
             }
         }
     }
